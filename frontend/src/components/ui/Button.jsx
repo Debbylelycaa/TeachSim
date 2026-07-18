@@ -6,13 +6,24 @@ export default function Button({
     loading = false,
     fullWidth = true,
     className = "",
+    variant = "primary",
 }) {
+
+    const variantClass = {
+        primary: "btn-game",
+        hero: "btn-hero",
+    };
+
     return (
         <button
             type={type}
             onClick={onClick}
             disabled={disabled || loading}
-            className={`btn-game ${fullWidth ? "btn-full" : ""} ${className}`}
+            className={`
+                ${variantClass[variant]}
+                ${fullWidth ? "btn-full" : ""}
+                ${className}
+            `}
         >
             {loading ? (
                 <>

@@ -1,12 +1,56 @@
-import Navbar from './Navbar'
+import "../../styles/main.css";
 
-export default function MainLayout({ children }) {
-  return (
-    <div className="min-h-screen bg-slate-50">
-      <Navbar />
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
-        {children}
-      </main>
-    </div>
-  )
+import Navbar from "../navigation/Navbar";
+
+export default function MainLayout({
+    children,
+    background,
+    grid,
+    grass,
+    isLoggedIn = false,
+    user = null,
+}) {
+    return (
+        <main className="main-page">
+
+            {/* Background */}
+            {background && (
+                <img
+                    src={background}
+                    alt=""
+                    className="main-background"
+                />
+            )}
+
+            {/* Grid */}
+            {grid && (
+                <img
+                    src={grid}
+                    alt=""
+                    className="main-grid"
+                />
+            )}
+
+            {/* Navbar */}
+            <Navbar
+                isLoggedIn={isLoggedIn}
+                user={user}
+            />
+
+            {/* Content */}
+            <section className="main-content">
+                {children}
+            </section>
+
+            {/* Grass */}
+            {grass && (
+                <img
+                    src={grass}
+                    alt=""
+                    className="main-grass"
+                />
+            )}
+
+        </main>
+    );
 }
