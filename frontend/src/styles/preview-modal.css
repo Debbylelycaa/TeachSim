@@ -1,0 +1,116 @@
+.preview-overlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(0, 0, 0, 0.28);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  z-index: 999999;
+}
+
+.preview-modal {
+  width: min(1400px, 92vw);
+
+  height: min(920px, 88vh);
+
+  background: #fffdf7;
+
+  border: 3px solid #b65d48;
+
+  border-radius: 26px;
+
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+
+  display: flex;
+
+  flex-direction: column;
+
+  overflow: hidden;
+}
+
+.preview-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 24px 28px;
+
+  border-bottom: 2px solid #e2b7aa;
+}
+
+.preview-header h2 {
+  font-family: "Fredoka";
+
+  font-size: 26px;
+
+  font-weight: 800;
+
+  color: #26346a;
+}
+
+.preview-close {
+  width: 42px;
+  height: 42px;
+
+  border-radius: 10px;
+
+  background: #ffe5df;
+
+  border: 2px solid #e89c86;
+
+  transition: 0.2s;
+}
+
+.preview-close:hover {
+  background: #ffd3ca;
+}
+
+.preview-body {
+  flex: 1;
+
+  padding: 18px;
+}
+
+.preview-frame {
+  width: 100%;
+
+  height: 100%;
+
+  border: none;
+
+  border-radius: 16px;
+
+  background: white;
+}
+
+.preview-empty {
+  height: 100%;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  color: #777;
+}
+
+.preview-footer {
+  border-top: 2px solid #e89c86;
+
+  padding: 18px 24px;
+}
+
+.preview-filename {
+  color: #29326b;
+  font-family: "Fredoka";
+  font-weight: 600;
+}

@@ -20,7 +20,7 @@ export default function Home() {
 
         if (user) {
 
-            navigate("/simulation");
+            navigate("/materials");
 
         } else {
 

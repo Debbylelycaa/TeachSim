@@ -1,0 +1,179 @@
+.processing-section{
+
+    width:100%;
+
+    background:#FFFFFF;
+
+    border:3px solid #E88CC7;
+
+    border-radius:26px;
+
+    padding:24px;
+
+    box-sizing:border-box;
+
+}
+
+.processing-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin-bottom:22px;
+
+}
+
+.processing-header h2{
+
+    margin:0;
+
+    font-family:"Lilita One";
+
+    font-size:28px;
+
+    color:#2E356B;
+
+}
+
+.processing-spinner{
+
+    width:30px;
+
+    height:30px;
+
+    border-radius:50%;
+
+    border:5px solid #F6B8E8;
+
+    border-top-color:#FF62C5;
+
+    animation:processing-spin .8s linear infinite;
+
+}
+
+@keyframes processing-spin{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+.processing-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.processing-item{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+.processing-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.processing-file{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.processing-pdf-icon{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:12px;
+
+    background:#F3F4F8;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:11px;
+
+    font-weight:bold;
+
+    color:#FF5252;
+
+}
+
+.processing-name{
+
+    font-family:"Fredoka";
+
+    font-size:18px;
+
+    color:#2F356D;
+
+}
+
+.processing-percent{
+
+    font-family:"Lilita One";
+
+    font-size:18px;
+
+    color:#2F356D;
+
+}
+
+.processing-progress{
+
+    width:100%;
+
+    height:14px;
+
+    background:#F2F2F2;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+}
+
+.processing-progress-fill{
+
+    height:100%;
+
+    border-radius:999px;
+
+    background:linear-gradient(
+        90deg,
+        #6F6AF7,
+        #8AB5FF
+    );
+
+    transition:width .2s linear;
+
+}
