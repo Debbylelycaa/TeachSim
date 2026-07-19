@@ -20,18 +20,14 @@ async def upload_material(
 
     file_bytes = await file.read()
 
-    # Path unik per user, biar file nggak saling timpa antar user
     storage_path = f"{user['id']}/{uuid.uuid4()}_{file.filename}"
 
-    # 1. Upload file fisik ke Supabase Storage
     supabase.storage.from_(BUCKET_NAME).upload(
         storage_path,
         file_bytes,
         {"content-type": file.content_type},
     )
 
-    # 2. Simpan metadata ke tabel materials
-    # (extracted_text diisi None dulu — nanti diisi setelah MathPix OCR jalan)
     result = supabase.table("materials").insert({
         "user_id": user["id"],
         "title": file.filename,
@@ -51,4 +47,22 @@ def list_materials(user: dict = Depends(get_current_user)):
         .order("created_at", desc=True)
         .execute()
     )
+
+    for item in result.data:
+        try:
+            signed = (
+                supabase.storage
+                .from_(BUCKET_NAME)
+                .create_signed_url(
+                    item["file_path"],
+                    60 * 60,
+                )
+            )
+
+            item["file_url"] = signed["signedURL"]
+
+        except Exception as e:
+            print(f"Signed URL gagal untuk {item['title']}: {e}")
+            item["file_url"] = None
+
     return result.data

@@ -1,9 +1,14 @@
 from supabase import create_client, Client
 from app.config import settings
+import jwt
 
-# Client ini pakai service_role key = akses penuh, bypass RLS.
-# Aman karena ini di backend (server), bukan kekirim ke browser.
-# Dipakai buat operasi backend seperti simpan hasil AI, dll.
+payload = jwt.decode(
+    settings.supabase_service_key,
+    options={"verify_signature": False},
+)
+
+print("ROLE:", payload.get("role"))
+
 supabase: Client = create_client(
     settings.supabase_url,
     settings.supabase_service_key,

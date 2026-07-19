@@ -1,34 +1,47 @@
-import jwt
 from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
+
+from supabase import create_client
+
 from app.config import settings
 
 security = HTTPBearer()
+
+supabase = create_client(
+    settings.supabase_url,
+    settings.supabase_service_key,
+)
 
 
 def get_current_user(
     credentials: HTTPAuthorizationCredentials = Depends(security),
 ) -> dict:
-    """
-    Dependency ini yang bikin endpoint "protected".
-    Cukup tambahkan `user: dict = Depends(get_current_user)` di parameter
-    endpoint manapun, otomatis butuh token valid buat akses.
 
-    Frontend kirim token di header: Authorization: Bearer <token>
-    """
     token = credentials.credentials
 
     try:
-        payload = jwt.decode(
-            token,
-            settings.supabase_jwt_secret,
-            algorithms=["HS256"],
-            audience="authenticated",
-        )
-    except jwt.ExpiredSignatureError:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Token kadaluarsa")
-    except jwt.InvalidTokenError:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Token tidak valid")
 
-    # payload["sub"] = user id (uuid) dari Supabase auth.users
-    return {"id": payload["sub"], "email": payload.get("email")}
+        user = supabase.auth.get_user(token)
+
+    except Exception as e:
+        print("AUTH ERROR:", e)
+
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Token tidak valid",
+        )
+
+    if user is None or user.user is None:
+
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="User tidak ditemukan",
+        )
+
+    return {
+
+        "id": user.user.id,
+
+        "email": user.user.email,
+
+    }
