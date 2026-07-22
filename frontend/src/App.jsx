@@ -4,6 +4,9 @@ import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Materials from "./pages/Materials";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Simulation from "./pages/Simulation";
+import Evaluation from "./pages/Evaluation";
+import History from "./pages/History";
 
 export default function App() {
   return (
@@ -29,6 +32,16 @@ export default function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/simulation/:materialId"
+          element={
+            <ProtectedRoute>
+              <Simulation />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/evaluation" element={<Evaluation />} />
+        <Route path="/history" element={<History />} />
       </Routes>
     </BrowserRouter>
   );

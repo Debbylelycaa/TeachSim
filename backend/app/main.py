@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import health, materials
+
+from app.routers import health, materials, simulation
 
 app = FastAPI(title="TeachSim API")
 
@@ -14,3 +15,4 @@ app.add_middleware(
 
 app.include_router(health.router)
 app.include_router(materials.router)
+app.include_router(simulation.router)

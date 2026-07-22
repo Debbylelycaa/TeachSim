@@ -1,0 +1,370 @@
+/* =======================================================
+   EVALUATION
+======================================================= */
+
+.evaluation-container {
+  width: min(1500px, 95vw);
+
+  margin: 0 auto;
+
+  padding-bottom: 40px;
+}
+
+/* =======================================================
+   HERO
+======================================================= */
+
+.evaluation-hero {
+  position: relative;
+
+  margin-top: 18px;
+
+  background: #a9d98c;
+
+  border: 4px solid #1c6b39;
+
+  border-radius: 42px;
+
+  min-height: 360px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  overflow: hidden;
+
+  box-shadow: 0 8px 0 #5ba2b3;
+}
+
+.evaluation-score {
+  margin-top: 10px;
+}
+
+.evaluation-score img {
+  width: 180px;
+
+  object-fit: contain;
+}
+
+.evaluation-title {
+  margin-top: 24px;
+
+  text-align: center;
+}
+
+.evaluation-title h1 {
+  margin: 0;
+
+  color: #104b2d;
+
+  font-size: 52px;
+
+  font-weight: 800;
+}
+
+.evaluation-title p {
+  margin-top: 12px;
+
+  color: #3278c9;
+
+  font-size: 24px;
+}
+
+.evaluation-badge {
+  position: absolute;
+
+  right: 34px;
+
+  top: 30px;
+
+  background: #ffd7ec;
+
+  border: 4px solid #ff5ec8;
+
+  color: #2e267c;
+
+  font-size: 28px;
+
+  font-weight: 700;
+
+  padding: 12px 28px;
+
+  border-radius: 18px;
+}
+
+/* =======================================================
+   CONTENT
+======================================================= */
+
+.evaluation-content {
+  margin-top: 48px;
+
+  display: grid;
+
+  grid-template-columns: 1.6fr 1fr;
+
+  gap: 36px;
+}
+
+/* =======================================================
+   LEFT
+======================================================= */
+
+.skill-card {
+  background: #fffdf7;
+
+  border-radius: 34px;
+
+  border: 3px solid #d65a47;
+
+  padding: 30px;
+
+  box-shadow: 0 10px 0 #ff8e73;
+}
+
+.skill-card h2 {
+  margin: 0;
+
+  color: #272b7b;
+
+  font-size: 34px;
+
+  font-weight: 800;
+}
+
+.divider {
+  margin: 24px 0;
+
+  height: 3px;
+
+  background: #d65a47;
+}
+
+.skill-item {
+  display: grid;
+
+  grid-template-columns: 64px 1fr auto;
+
+  gap: 18px;
+
+  align-items: center;
+
+  padding: 18px 0;
+
+  border-bottom: 3px dashed #ffa18d;
+}
+
+.skill-item:last-child {
+  border-bottom: none;
+}
+
+.skill-number {
+  width: 52px;
+
+  height: 52px;
+
+  border-radius: 14px;
+
+  background: #7ee4ff;
+
+  border: 3px solid #2882c8;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  color: white;
+
+  font-size: 28px;
+
+  font-weight: 800;
+}
+
+.skill-info h3 {
+  margin: 0;
+
+  color: #23235c;
+
+  font-size: 24px;
+
+  font-weight: 700;
+}
+
+.skill-info p {
+  margin-top: 8px;
+
+  color: #4c6dff;
+
+  font-size: 17px;
+}
+
+.skill-score{
+
+    min-width:82px;
+
+    height:52px;
+
+    border-radius:14px;
+
+    background:#6BD66B;
+
+    border:3px solid #3C8EDC;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#2A63A7;
+
+    font-size:24px;
+
+    font-weight:800;
+
+    transition:.3s;
+
+}
+/* =======================================================
+   RIGHT
+======================================================= */
+
+.tips-section {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 24px;
+}
+
+.tips-card {
+  background: #fffdf7;
+
+  border: 3px solid #d65a47;
+
+  border-radius: 34px;
+
+  padding: 28px;
+
+  box-shadow: 0 10px 0 #ff8e73;
+}
+
+.tips-card h2 {
+  margin: 0;
+
+  color: #272b7b;
+
+  font-size: 34px;
+
+  font-weight: 800;
+}
+
+.tip-item {
+  background: white;
+
+  border: 2px solid #ff8e73;
+
+  border-radius: 16px;
+
+  padding: 18px;
+
+  color: #24336e;
+
+  font-size: 18px;
+
+  margin-top: 18px;
+
+  line-height: 1.5;
+}
+
+/* =======================================================
+   BUTTON
+======================================================= */
+
+.retry-btn {
+  height: 78px;
+
+  border: none;
+
+  border-radius: 22px;
+
+  background: #5b59ea;
+
+  color: white;
+
+  font-size: 34px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow: 0 8px 0 #3e3bb5;
+
+  transition: 0.2s;
+}
+
+.retry-btn:hover {
+  transform: translateY(-2px);
+}
+
+.retry-btn:active {
+  transform: translateY(3px);
+
+  box-shadow: none;
+}
+
+.history-btn {
+  height: 74px;
+
+  border: none;
+
+  border-radius: 22px;
+
+  background: #ffb94c;
+
+  color: white;
+
+  font-size: 30px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow: 0 8px 0 #cf8a1f;
+
+  transition: 0.2s;
+}
+
+.history-btn:hover {
+  transform: translateY(-2px);
+}
+
+.history-btn:active {
+  transform: translateY(3px);
+
+  box-shadow: none;
+}
+
+/* =======================================================
+   RESPONSIVE
+======================================================= */
+
+@media (max-width: 1200px) {
+  .evaluation-content {
+    grid-template-columns: 1fr;
+  }
+
+  .evaluation-title h1 {
+    font-size: 40px;
+  }
+
+  .evaluation-title p {
+    font-size: 20px;
+  }
+}
